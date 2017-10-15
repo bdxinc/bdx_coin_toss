@@ -1,9 +1,6 @@
 (function(){
 
-
-
   function randomToss() {
-
 
     if(Math.random() > 0.5) {
       return "Heads";
@@ -13,6 +10,26 @@
   }
 
 console.log(randomToss());
+
+
+function pickedHeads() {
+  // var heads = document.getElementById("heads").value
+}
+
+function pickedTails() {
+  // var tails = document.getElementById("tails").value
+}
+
+
+var headsEl = document.getElementById("heads");
+headsEl.addEventListener("click", pickedHeads, true);
+
+
+
+var tailsEl = document.getElementById("tails");
+tailsEl.addEventListener("click", pickedTails, true);
+
+
 /*
   var min = 1;
   var max = 11;
