@@ -1,33 +1,43 @@
-(function(){
+(function(window){
 
   function randomToss() {
 
     if(Math.random() > 0.5) {
-      return "Heads";
+      return "HEADS";
     } else {
-      return "Tails";
+      return "TAILS";
     }
   }
 
-console.log(randomToss());
+var coin = randomToss();
+//console.log(coin);
+
+var headsSelected;
+var tailsSelected;
+var headsWon;
+var tailsWon;
+
+var flip = document.querySelectorAll("button");
+
+  function flipCoin(event) {
+    var side = event.target.textContent;
+
+    if(side === coin) {
+    //
+    }
+  }
+
+  flip.forEach(function(button) {
+    button.addEventListener("click", flipCoin, true);
+  });
 
 
-function pickedHeads() {
-  // var heads = document.getElementById("heads").value
-}
-
-function pickedTails() {
-  // var tails = document.getElementById("tails").value
-}
-
-
-var headsEl = document.getElementById("heads");
-headsEl.addEventListener("click", pickedHeads, true);
-
-
-
-var tailsEl = document.getElementById("tails");
-tailsEl.addEventListener("click", pickedTails, true);
+// var headsEl = document.getElementById("heads");
+// headsEl.addEventListener("click", flipCoin, true);
+//
+//
+// var tailsEl = document.getElementById("tails");
+// tailsEl.addEventListener("click", flipCoin, true);
 
 
 /*
@@ -42,7 +52,7 @@ tailsEl.addEventListener("click", pickedTails, true);
   console.log(rNumber);
 */
 
-}());
+}(window));
 
 /*
 // TODO: My Todo item
