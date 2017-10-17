@@ -10,26 +10,45 @@
   }
 
 var coin = randomToss();
-//console.log(coin);
+console.log(coin);
 
-var headsSelected;
-var tailsSelected;
-var headsWon;
-var tailsWon;
+var headsSelected = 0;
+var tailsSelected = 0;
+var headsWon = 0;
+var tailsWon = 0;
+var headsWinRate;
+var tailsWinRate
+
 
 var flip = document.querySelectorAll("button");
 
   function flipCoin(event) {
     var side = event.target.textContent;
+    console.log(side);
 
-    if(side === coin) {
-    //
+    if(side === "HEADS") {
+      headsSelected++
+
+      console.log(headsSelected);
+      if(side === coin) {
+        headsWon++
+        console.log(headsWon);
+      }
+    } else {
+      tailsSelected++
+      console.log(tailsSelected);
+      if(side === coin) {
+        tailsWon++
+        console.log(tailsWon);
+      }
     }
+    coin = randomToss();
   }
 
   flip.forEach(function(button) {
     button.addEventListener("click", flipCoin, true);
   });
+
 
 
 // var headsEl = document.getElementById("heads");
