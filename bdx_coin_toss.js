@@ -17,7 +17,8 @@ var tailsSelected = 0;
 var headsWon = 0;
 var tailsWon = 0;
 var headsWinRate;
-var tailsWinRate
+var tailsWinRate;
+var ovarallWinRate;
 
 
 var flip = document.querySelectorAll("button");
@@ -28,18 +29,17 @@ var flip = document.querySelectorAll("button");
 
     if(side === "HEADS") {
       headsSelected++
-
-      console.log(headsSelected);
+      document.getElementById("headsSelected").textContent = headsSelected;
       if(side === coin) {
         headsWon++
-        console.log(headsWon);
+        document.getElementById("headsWon").textContent = headsWon;
       }
     } else {
       tailsSelected++
-      console.log(tailsSelected);
+      document.getElementById("tailsSelected").textContent = tailsSelected;
       if(side === coin) {
         tailsWon++
-        console.log(tailsWon);
+        document.getElementById("tailsWon").textContent = tailsWon;
       }
     }
     coin = randomToss();

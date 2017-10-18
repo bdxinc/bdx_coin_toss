@@ -11,10 +11,38 @@
       <p>
         Pick a side: Heads or Tails...
       </p>
-      <!-- <form> -->
-        <button class="side" value="Heads">HEADS</button>
-        <button class="side" value="Tails">TAILS</button>
-      <!-- </form> -->
+      <button class="side" value="Heads">HEADS</button>
+      <button class="side" value="Tails">TAILS</button>
+      <div id="result">
+
+      </div>
+      <div id="overallStats">
+        <p>
+          Overall Win Rate: <span id="ovarallWinRate"></span>
+        </p>
+        <div id="headsStats">
+          <p>
+            Times Selected: <span id="headsSelected">0</span>
+          </p>
+          <p>
+            Times Won: <span id="headsWon">0</span>
+          </p>
+          <p>
+            Average Win Rate: <span id="headsWinRate"></span>
+          </p>
+        </div>
+        <div id="tailsStats">
+          <p>
+            Times Selected: <span id="tailsSelected">0</span>
+          </p>
+          <p>
+            Times Won: <span id="tailsWon">0</span>
+          </p>
+          <p>
+            Average Win Rate: <span id="tailsWinRate"></span>
+          </p>
+        </div>
+      </div>
     </div>
     <script src = "bdx_coin_toss.js"></script>
   </body>
