@@ -10,3 +10,19 @@ p {
   font-weight: bold;
   font-family: sans-serif;
 }
+
+#overallStats {
+  border: 2px dashed green;
+}
+
+#headsStats {
+  border: 2px dashed red;
+  display: inline-block;
+  width: auto;
+}
+
+#tailsStats {
+  border: 2px dashed blue;
+  display: inline-block;
+  width: auto;
+}
