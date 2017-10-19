@@ -6,9 +6,10 @@ h1 {
   font-family: sans-serif;
 }
 
-p {
+p, #result {
   font-weight: bold;
   font-family: sans-serif;
+  font-style: italic;
 }
 
 #overallStats {

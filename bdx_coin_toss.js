@@ -23,9 +23,12 @@ var ovarallWinRate;
 
 var flip = document.querySelectorAll("button");
 
+
   function flipCoin(event) {
     var side = event.target.textContent;
     console.log(side);
+
+    document.getElementById("result").textContent = "You picked " + side + "; the coin landed on " + coin;
 
     if(side === "HEADS") {
       headsSelected++
@@ -42,6 +45,9 @@ var flip = document.querySelectorAll("button");
         document.getElementById("tailsWon").textContent = tailsWon;
       }
     }
+    headsWinRate = headsWon / headsSelected;
+    document.getElementById("headsWinRate").textContent = headsWinRate;
+
     coin = randomToss();
   }
 
