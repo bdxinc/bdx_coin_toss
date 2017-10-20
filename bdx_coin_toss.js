@@ -36,6 +36,9 @@ var flip = document.querySelectorAll("button");
       if(side === coin) {
         headsWon++
         document.getElementById("headsWon").textContent = headsWon;
+
+        headsWinRate = headsWon / headsSelected;
+        document.getElementById("headsWinRate").textContent = (headsWinRate * 100).toFixed(2);
       }
     } else {
       tailsSelected++
@@ -43,10 +46,11 @@ var flip = document.querySelectorAll("button");
       if(side === coin) {
         tailsWon++
         document.getElementById("tailsWon").textContent = tailsWon;
+
+        tailsWinRate = tailsWon / tailsSelected;
+        document.getElementById("tailsWinRate").textContent = (tailsWinRate * 100).toFixed(2);
       }
     }
-    headsWinRate = headsWon / headsSelected;
-    document.getElementById("headsWinRate").textContent = headsWinRate;
 
     coin = randomToss();
   }
@@ -54,7 +58,6 @@ var flip = document.querySelectorAll("button");
   flip.forEach(function(button) {
     button.addEventListener("click", flipCoin, true);
   });
-
 
 
 // var headsEl = document.getElementById("heads");
