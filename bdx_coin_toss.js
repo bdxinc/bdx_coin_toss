@@ -18,7 +18,9 @@ var headsWon = 0;
 var tailsWon = 0;
 var headsWinRate;
 var tailsWinRate;
-var ovarallWinRate;
+var overallSelected;
+var overallWon;
+var overallWinRate;
 
 
 var flip = document.querySelectorAll("button");
@@ -51,6 +53,12 @@ var flip = document.querySelectorAll("button");
         document.getElementById("tailsWinRate").textContent = (tailsWinRate * 100).toFixed(2);
       }
     }
+
+    overallSelected = headsSelected + tailsSelected;
+    overallWon = headsWon + tailsWon;
+
+    overallWinRate = overallWon / overallSelected;
+    document.getElementById("overallWinRate").textContent = (overallWinRate * 100).toFixed(2);
 
     coin = randomToss();
   }
