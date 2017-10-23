@@ -2,8 +2,12 @@
  text-align: center;
 }
 
-h1 {
+h1, h2, h3 {
   font-family: sans-serif;
+}
+
+h2, h3 {
+  font-style: italic;
 }
 
 p, #result {
@@ -13,17 +17,17 @@ p, #result {
 }
 
 #overallStats {
-  border: 2px dashed green;
+  /*border: 2px dashed green;*/
 }
 
 #headsStats {
-  border: 2px dashed red;
+  /*border: 2px dashed red;*/
   display: inline-block;
   width: auto;
 }
 
 #tailsStats {
-  border: 2px dashed blue;
+  /*border: 2px dashed blue;*/
   display: inline-block;
   width: auto;
 }
