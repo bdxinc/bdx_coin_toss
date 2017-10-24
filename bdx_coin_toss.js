@@ -33,7 +33,7 @@ var flip = document.querySelectorAll("button");
     document.getElementById("result").textContent = "You picked " + side + "; the coin landed on " + coin;
 
     if(side === "HEADS") {
-      headsSelected++
+      currentH = headsSelected++
       document.getElementById("headsSelected").textContent = headsSelected;
       if(side === coin) {
         headsWon++
@@ -61,35 +61,32 @@ var flip = document.querySelectorAll("button");
     coin = randomToss();
 
     document.getElementById("overallStats").style.display = "block";
+
+
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+              ['Coin Side', 'Heads', 'Tails'],
+              ['Times Selected', headsSelected, tailsSelected],
+              ['Times Won',  headsWon, tailsWon]
+            ]);
+
+            var options = {
+              title: 'Win Rate Chart',
+              hAxis: {title: 'Coin Side',  titleTextStyle: {color: '#333'}},
+              vAxis: {minValue: 0}
+            };
+
+            var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+            chart.draw(data, options);
+          }
   }
 
   flip.forEach(function(button) {
     button.addEventListener("click", flipCoin, true);
   });
-
-
-  google.charts.load('current', {'packages':['corechart']});
-  google.charts.setOnLoadCallback(drawChart);
-
-  function drawChart() {
-          var data = google.visualization.arrayToDataTable([
-            ['Year', 'Sales', 'Expenses'],
-            ['2013',  1000,      400],
-            ['2014',  1170,      460],
-            ['2015',  660,       1120],
-            ['2016',  1030,      540]
-          ]);
-
-          var options = {
-            title: 'Company Performance',
-            hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
-            vAxis: {minValue: 0}
-          };
-
-          var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
-          chart.draw(data, options);
-        }
-
 
 
 // var headsEl = document.getElementById("heads");
