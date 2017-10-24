@@ -38,20 +38,18 @@ var flip = document.querySelectorAll("button");
       if(side === coin) {
         headsWon++
         document.getElementById("headsWon").textContent = headsWon;
-
-        headsWinRate = headsWon / headsSelected;
-        document.getElementById("headsWinRate").textContent = (headsWinRate * 100).toFixed(2);
       }
+      headsWinRate = headsWon / headsSelected;
+      document.getElementById("headsWinRate").textContent = (headsWinRate * 100).toFixed(2);
     } else {
       tailsSelected++
       document.getElementById("tailsSelected").textContent = tailsSelected;
       if(side === coin) {
         tailsWon++
         document.getElementById("tailsWon").textContent = tailsWon;
-
-        tailsWinRate = tailsWon / tailsSelected;
-        document.getElementById("tailsWinRate").textContent = (tailsWinRate * 100).toFixed(2);
       }
+      tailsWinRate = tailsWon / tailsSelected;
+      document.getElementById("tailsWinRate").textContent = (tailsWinRate * 100).toFixed(2);
     }
 
     overallSelected = headsSelected + tailsSelected;
@@ -61,11 +59,37 @@ var flip = document.querySelectorAll("button");
     document.getElementById("overallWinRate").textContent = (overallWinRate * 100).toFixed(2);
 
     coin = randomToss();
+
+    document.getElementById("overallStats").style.display = "block";
   }
 
   flip.forEach(function(button) {
     button.addEventListener("click", flipCoin, true);
   });
+
+
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+          var data = google.visualization.arrayToDataTable([
+            ['Year', 'Sales', 'Expenses'],
+            ['2013',  1000,      400],
+            ['2014',  1170,      460],
+            ['2015',  660,       1120],
+            ['2016',  1030,      540]
+          ]);
+
+          var options = {
+            title: 'Company Performance',
+            hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
+            vAxis: {minValue: 0}
+          };
+
+          var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+          chart.draw(data, options);
+        }
+
 
 
 // var headsEl = document.getElementById("heads");
